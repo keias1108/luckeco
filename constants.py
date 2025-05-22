@@ -26,7 +26,7 @@ GREY = (200, 200, 200)
 INITIAL_GLOBAL_ENERGY_POOL = 30000.0
 
 # 개체 공통
-CREATURE_LIFESPAN_TICKS = 1000
+CREATURE_LIFESPAN_TICKS = 800
 
 # 목표 개체 수 비율 및 점유율
 TARGET_RATIO_A_SHARE = 0.500
@@ -68,19 +68,26 @@ CREATURE_C_HUNT_RADIUS = 35
 
 # --- HUD 설정 ---
 HUD_AREA_RECT = pygame.Rect(0, 0, SIMULATION_AREA_WIDTH, 50) # HUD 표시 영역
-HUD_FONT_SIZE = 24 # HUD 폰트 크기 (기존 self.font 크기와 유사하게)
+HUD_FONT_SIZE = 24 # HUD 폰트 크기
 
 # --- 그래프 설정 ---
-# GRAPH_AREA_HEIGHT는 SCREEN_HEIGHT에 맞춰 동적으로 설정되거나, 패딩을 제외한 영역으로 설정
 GRAPH_PADDING = 10
-GRAPH_MAX_HISTORY = 1000  # 그래프에 표시할 최근 데이터 포인트 수 변경
+GRAPH_MAX_HISTORY = 1000
 GRAPH_LINE_THICKNESS = 2
-
-# 새로운 그래프 선 색상 정의
-GRAPH_LINE_COLOR_A = (100, 255, 100) # 밝은 녹색
-GRAPH_LINE_COLOR_B = (100, 150, 255) # 하늘색
-GRAPH_LINE_COLOR_C = (255, 150, 100) # 주황색 계열
+GRAPH_LINE_COLOR_A = (100, 255, 100)
+GRAPH_LINE_COLOR_B = (100, 150, 255)
+GRAPH_LINE_COLOR_C = (255, 150, 100)
 GRAPH_AXIS_COLOR = GREY
-GRAPH_BG_COLOR = (20, 20, 20) # 어두운 배경색
+GRAPH_BG_COLOR = (20, 20, 20)
 GRAPH_TEXT_COLOR = GREY
-GRAPH_FONT_SIZE = 18 # 그래프용 폰트 크기 (HUD보다 약간 작게)
+GRAPH_FONT_SIZE = 18
+
+# --- 시뮬레이션 제어 ---
+FAST_FORWARD_FACTORS = [1.0, 2.0, 4.0, 8.0] # 앞으로 감기 속도 배율
+
+# --- 그래프 저장 설정 ---
+GRAPH_SAVE_PATH = "simulation_graphs/" # 뒤에 슬래시를 붙여 폴더임을 명시
+GRAPH_FILENAME_PREFIX = "population_graph_tick_"
+GRAPH_SAVE_DEFAULT_WIDTH = 1200 # 저장될 그래프 이미지의 기본 너비
+GRAPH_SAVE_DEFAULT_HEIGHT = 600 # 저장될 그래프 이미지의 기본 높이
+GRAPH_SAVE_X_PIXELS_PER_TICK = 1 # 저장 시 틱당 X축 픽셀 수 (0이면 자동 스케일)
